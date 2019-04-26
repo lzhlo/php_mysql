@@ -1,6 +1,6 @@
 <?php
   // create short variable name
-  $document_root = $_SERVER['DOCUMENT_ROOT'];
+  $document_root = getcwd();
 ?>
 <!DOCTYPE html>
 <html>

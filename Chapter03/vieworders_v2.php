@@ -1,6 +1,6 @@
 <?php
   // create short variable name
-  $document_root = $_SERVER['DOCUMENT_ROOT'];
+  $document_root = getcwd();
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
     <?php
       //Read in the entire file
       //Each order becomes an element in the array
-      $orders= file("$document_root/../orders/orders.txt");
+      $orders= file("$document_root/orders.txt");
     
       // count the number of orders in the array
       $number_of_orders = count($orders);
@@ -49,7 +49,7 @@
     
       for ($i=0; $i<$number_of_orders; $i++) {
         //split up each line
-        $line = explode("\t", $orders[$i]);
+        $line = explode("  ", $orders[$i]);
     
         // keep only the number of items ordered
         $line[1] = intval($line[1]);
@@ -63,7 +63,6 @@
               <td style=\"text-align: right;\">".$line[2]."</td>    
               <td style=\"text-align: right;\">".$line[3]."</td>
               <td style=\"text-align: right;\">".$line[4]."</td>
-              <td>".$line[5]."</td>
           </tr>";
       }    
       echo "</table>";

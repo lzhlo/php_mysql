@@ -1,6 +1,6 @@
 <?php
   // create short variable name
-  $document_root = $_SERVER['DOCUMENT_ROOT'];
+  $document_root = getcwd();
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
     <h1>Bob's Auto Parts</h1>
     <h2>Customer Orders</h2> 
     <?php
-      @$fp = fopen("$document_root/../orders/orders.txt", 'rb');
+      @$fp = fopen("$document_root/orders.txt", 'rb');
       flock($fp, LOCK_SH); // lock file for reading
 
       if (!$fp) {

@@ -4,7 +4,7 @@
   $oilqty = (int) $_POST['oilqty'];
   $sparkqty = (int) $_POST['sparkqty'];
   $address = preg_replace('/\t|\R/',' ',$_POST['address']);
-  $document_root = $_SERVER['DOCUMENT_ROOT'];
+  $document_root = getcwd();
   $date = date('H:i, jS F Y');
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
                       ."\t". $address."\n";
 
        // open file for appending
-       @$fp = fopen("$document_root/../orders/orders.txt", 'ab');
+       @$fp = fopen("$document_root/orders.txt", 'ab');
 
        if (!$fp) {
          echo "<p><strong> Your order could not be processed at this time.
