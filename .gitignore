@@ -1,0 +1,4 @@
+vendor/*
+*.temp
+*.log
+.idea
